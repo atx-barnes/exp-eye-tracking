@@ -57,4 +57,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a27cfd1a824b4aeb8ec6eeb87788263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eyePrefab: {fileID: 4427764745575099628, guid: 31b7c4b58ca484156b7ede854052a7cf, type: 3}
+  eyePrefab: {fileID: 329673891709748696, guid: 31b7c4b58ca484156b7ede854052a7cf, type: 3}
+  reticlePrefab: {fileID: 6867529597603922397, guid: 159f83d59098b4008aa126b330186656, type: 3}
