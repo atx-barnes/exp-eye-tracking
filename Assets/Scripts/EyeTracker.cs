@@ -12,9 +12,6 @@ public class EyeTracker : MonoBehaviour
     [SerializeField]
     private GameObject eyePrefab;
 
-    [SerializeField]
-    private GameObject reticlePrefab;
-
     private TextMeshProUGUI rightEyeTelemetryTMP;
     private TextMeshProUGUI leftEyeTelemetryTMP;
 
@@ -22,17 +19,14 @@ public class EyeTracker : MonoBehaviour
     private GameObject eyeRight;
     private ARFace arFace;
 
-    private Canvas canvas;
+    Plane PlaneNearCamera;
 
-    Image imgReticle;
+    private GameObject screenReticle;
 
     void Awake()
     {
         arFace = this.GetComponent<ARFace>();
-        canvas = FindObjectOfType<Canvas>();
-
-        rightEyeTelemetryTMP = GameObject.FindGameObjectWithTag("Right Eye").GetComponent<TextMeshProUGUI>();
-        leftEyeTelemetryTMP = GameObject.FindGameObjectWithTag("Left Eye").GetComponent<TextMeshProUGUI>();
+        screenReticle = GameObject.Find("Screen Reticle");
     }
 
     private void OnEnable()
@@ -57,40 +51,23 @@ public class EyeTracker : MonoBehaviour
 
     void OnUpdated(ARFaceUpdatedEventArgs eventArgs)
     {
-        if(arFace.leftEye != null && eyeLeft == null)
+        if (arFace.leftEye != null && eyeLeft == null)
         {
             eyeLeft = Instantiate(eyePrefab, arFace.leftEye);
-
-            // Move this
-            imgReticle = Instantiate(reticlePrefab, canvas.transform).GetComponent<Image>();
-
             eyeLeft.SetActive(false);
         }
 
-        if(arFace.rightEye != null && eyeRight == null)
+        if (arFace.rightEye != null && eyeRight == null)
         {
             eyeRight = Instantiate(eyePrefab, arFace.rightEye);
             eyeRight.SetActive(false);
         }
 
+        screenReticle.transform.position = Camera.main.WorldToScreenPoint(arFace.fixationPoint.position);
+
         bool arState = (arFace.trackingState == TrackingState.Tracking) && (ARSession.state > ARSessionState.Ready);
 
         SetVisibility(arState);
-
-        Vector3 eulerAnglesLeftEye = arFace.leftEye.localEulerAngles;
-        Vector3 eulerAnglesRightEye = arFace.rightEye.localEulerAngles;
-
-        rightEyeTelemetryTMP.text = "angles x: " + eulerAnglesRightEye.x + " y: " + eulerAnglesRightEye.y + " z: " + eulerAnglesRightEye.z;
-        leftEyeTelemetryTMP.text = "angles x: " + eulerAnglesLeftEye.x + " y: " + eulerAnglesLeftEye.y + " z: " + eulerAnglesLeftEye.z;
-
-        RaycastHit hit;
-
-        if (Physics.Raycast(eyeRight.transform.position, eyeRight.transform.TransformDirection(Vector3.left), out hit, Mathf.Infinity))
-        {
-            Debug.LogFormat("Right Eye Hit: " + hit.transform.name);
-        }
-
-        imgReticle.transform.position = FindObjectOfType<ARCameraManager>().GetComponent<Camera>().WorldToScreenPoint(arFace.rightEye.position);
     }
 
     private void SetVisibility(bool isVisible)

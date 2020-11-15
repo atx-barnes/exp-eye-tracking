@@ -35,9 +35,8 @@ public class EyeTrackerSim : MonoBehaviour
             LeftEye.transform.LookAt(LookAtPositon, Vector3.up);
         }
 
-        //Create a ray from the Mouse click position
-        Ray rightEyeRay = new Ray(RightEye.transform.position, LookAtPositon.position - RightEye.transform.position);
-        Ray leftEyeRay = new Ray(LeftEye.transform.position, LookAtPositon.position - LeftEye.transform.position);
+        Ray rightEyeRay = new Ray(RightEye.transform.position, RightEye.transform.forward);
+        Ray leftEyeRay = new Ray(LeftEye.transform.position, LeftEye.transform.forward);
 
         float rightEnter = 0.0f;
 
@@ -66,16 +65,16 @@ public class EyeTrackerSim : MonoBehaviour
         }
 
         Vector3 ScreenReticlePos = new Vector3((leftHitPoint.x + rightHitPoint.x) / 2, (leftHitPoint.y + rightHitPoint.y) / 2, Camera.main.transform.position.z - Camera.main.farClipPlane);
-        Vector3 WorldReticlePos = new Vector3((leftHitPoint.x + rightHitPoint.x) / 2, (leftHitPoint.y + rightHitPoint.y) / 2, Camera.main.transform.position.z + Camera.main.nearClipPlane);
+        Vector3 WorldReticlePos = new Vector3((leftHitPoint.x + rightHitPoint.x) / 2, (leftHitPoint.y + rightHitPoint.y) / 2, Camera.main.transform.position.z - Camera.main.farClipPlane);
 
         SpaceReticle.transform.position = WorldReticlePos;
 
         ScreenReticle.transform.position = Camera.main.WorldToScreenPoint(ScreenReticlePos);
 
-        Debug.DrawRay(RightEye.transform.position, LookAtPositon.position - RightEye.transform.position, Color.green);
-        Debug.DrawRay(LeftEye.transform.position, LookAtPositon.position - LeftEye.transform.position, Color.green);
+        Debug.DrawRay(RightEye.transform.position, RightEye.transform.forward, Color.green);
+        Debug.DrawRay(LeftEye.transform.position, LeftEye.transform.forward, Color.green);
 
         Debug.DrawRay(RightEye.transform.position, RightEye.transform.position - new Vector3(RightEye.transform.position.x, RightEye.transform.position.y, Camera.main.farClipPlane - Camera.main.transform.position.z), Color.red);
-        Debug.DrawRay(LeftEye.transform.position, LeftEye.transform.position - new Vector3(LeftEye.transform.position.x, LeftEye.transform.position.y, Camera.main.farClipPlane - Camera.main.transform.position.z), Color.red);
+        Debug.DrawRay(LeftEye.transform.position, LeftEye.transform.position - new Vector3(LeftEye.transform.position.x, LeftEye.transform.position.y, Camera.main.farClipPlane - Camera.main.transform.localPosition.z), Color.red);
     }
 }
