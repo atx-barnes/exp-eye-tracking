@@ -12,14 +12,9 @@ public class EyeTracker : MonoBehaviour
     [SerializeField]
     private GameObject eyePrefab;
 
-    private TextMeshProUGUI rightEyeTelemetryTMP;
-    private TextMeshProUGUI leftEyeTelemetryTMP;
-
     private GameObject eyeLeft;
     private GameObject eyeRight;
     private ARFace arFace;
-
-    Plane PlaneNearCamera;
 
     private GameObject screenReticle;
 
