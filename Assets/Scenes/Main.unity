@@ -524,6 +524,7 @@ GameObject:
   - component: {fileID: 378471218}
   - component: {fileID: 378471213}
   - component: {fileID: 378471215}
+  - component: {fileID: 378471219}
   - component: {fileID: 378471216}
   - component: {fileID: 378471217}
   m_Layer: 0
@@ -619,7 +620,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AttemptUpdate: 1
   m_MatchFrameRate: 1
-  m_TrackingMode: 0
+  m_TrackingMode: 2
+--- !u!114 &378471219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378471212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PlanePrefab: {fileID: 1585201990951412, guid: d16dd8da7e4ccbe42b1b4a344a72ecbb, type: 3}
+  m_DetectionMode: -1
 --- !u!1 &458681396
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,7 +878,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -90.6, y: -104.6}
+  m_AnchoredPosition: {x: -90.6001, y: -104.6001}
   m_SizeDelta: {x: 538.15137, y: 154.58286}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &684149436
