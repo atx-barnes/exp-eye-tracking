@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
-using UnityEngine.EventSystems;
-using TMPro;
-using UnityEngine.UI;
 
 [RequireComponent(typeof(ARFace))]
 public class EyeTracker : MonoBehaviour
 {
+    public Vector3 eyeGazePosition;
+    public bool arEyeTrackingState;
+
     [SerializeField]
     private GameObject eyePrefab;
-
     private GameObject eyeLeft;
     private GameObject eyeRight;
 
@@ -23,32 +22,36 @@ public class EyeTracker : MonoBehaviour
     private float calibrationOffsetX = 0;
     private float calibrationOffsetY = 0;
 
-    private Vector3 mirrorFixation;
+    void Awake() {
 
-    void Awake()
-    {
         arFace = this.GetComponent<ARFace>();
-        interactionManager = FindObjectOfType<InteractionManager>();
     }
 
-    private void OnEnable()
-    {
+    private void OnEnable() {
+
         ARFaceManager arFaceManager = FindObjectOfType<ARFaceManager>();
 
-        interactionManager.CalibrateButton.onClick.AddListener(CalibrateReticleFixationPoint);
+        interactionManager = FindObjectOfType<InteractionManager>();
 
-        if(arFaceManager != null && arFaceManager.subsystem != null && arFaceManager.subsystem.SubsystemDescriptor.supportsEyeTracking)
-        {
+        if (interactionManager != null) {
+
+            interactionManager.CalibrateButton.onClick.AddListener(CalibrateReticleFixationPoint);
+
+            interactionManager.eyeTracker = this;
+        }
+
+        if(arFaceManager != null && arFaceManager.subsystem != null && arFaceManager.subsystem.SubsystemDescriptor.supportsEyeTracking) {
+
             arFace.updated += OnUpdated;
         }
-        else
-        {
+        else {
+
             Debug.LogWarningFormat("Eye tracking not support on device");
         }
     }
 
-    private void OnDisable()
-    {
+    private void OnDisable() {
+
         arFace.updated -= OnUpdated;
 
         interactionManager.CalibrateButton.onClick.RemoveListener(CalibrateReticleFixationPoint);
@@ -56,56 +59,72 @@ public class EyeTracker : MonoBehaviour
         SetVisibility(false);
     }
 
-    void OnUpdated(ARFaceUpdatedEventArgs eventArgs)
-    {
-        if (arFace.leftEye != null && eyeLeft == null)
-        {
+    /// <summary>
+    /// Callback detects any changes that are made to the AR Face data.
+    /// </summary>
+    /// <param name="eventArgs"></param>
+    void OnUpdated(ARFaceUpdatedEventArgs eventArgs) {
+
+        if (arFace.leftEye != null && eyeLeft == null) {
+
             eyeLeft = Instantiate(eyePrefab, arFace.leftEye);
+
             eyeLeft.SetActive(false);
         }
 
-        if (arFace.rightEye != null && eyeRight == null)
-        {
+        if (arFace.rightEye != null && eyeRight == null) {
+
             eyeRight = Instantiate(eyePrefab, arFace.rightEye);
+
             eyeRight.SetActive(false);
         }
 
-        bool arState = (arFace.trackingState == TrackingState.Tracking) && (ARSession.state > ARSessionState.Ready);
+        arEyeTrackingState = (arFace.trackingState == TrackingState.Tracking) && (ARSession.state > ARSessionState.Ready);
 
         UpdateScreenReticle();
 
-        SetVisibility(arState);
+        SetVisibility(arEyeTrackingState);
     }
 
-    private void SetVisibility(bool isVisible)
-    {
-        if(eyeLeft != null && eyeRight != null)
-        {
+    /// <summary>
+    /// Sets visibility of each eye prefab so they dont show up in the scene after being instantiated.
+    /// </summary>
+    /// <param name="isVisible"></param>
+    private void SetVisibility(bool isVisible) {
+
+        if(eyeLeft != null && eyeRight != null) {
+
             eyeLeft.SetActive(isVisible);
+
             eyeRight.SetActive(isVisible);
         }
     }
 
-    private void UpdateScreenReticle()
-    {
-        var mainCamera = Camera.main;
+    /// <summary>
+    /// Updates the position of the reticle in screen space from the fixation point in world space.
+    /// </summary>
+    private void UpdateScreenReticle() {
 
-        var fixationInViewSpace = mainCamera.WorldToViewportPoint(arFace.fixationPoint.position);
+        var fixationInViewSpace = Camera.main.WorldToViewportPoint(arFace.fixationPoint.position);
 
         // The camera texture is mirrored so x and y must be changed to match where the fixation point is in relation to the face.
         var mirrorFixationInView = new Vector3(1 - fixationInViewSpace.x, 1 - fixationInViewSpace.y, fixationInViewSpace.z);
 
-        if (interactionManager.screenReticle != null)
-        {
-            mirrorFixation = mainCamera.ViewportToScreenPoint(mirrorFixationInView);
+        if (interactionManager.ScreenReticle != null) {
 
-            interactionManager.screenReticle.anchoredPosition3D = new Vector3((mirrorFixation.x + calibrationOffsetX) * interactionManager.GazeMovementSlider.value, (mirrorFixation.y + calibrationOffsetY) * interactionManager.GazeMovementSlider.value, mirrorFixation.z);
+            eyeGazePosition = Camera.main.ViewportToScreenPoint(mirrorFixationInView);
+
+            interactionManager.ScreenReticle.anchoredPosition3D = new Vector3((eyeGazePosition.x + calibrationOffsetX) * interactionManager.GazeMovementSlider.value, (eyeGazePosition.y + calibrationOffsetY) * interactionManager.GazeMovementSlider.value, eyeGazePosition.z);
         }
     }
 
-    public void CalibrateReticleFixationPoint()
-    {
-        calibrationOffsetX = -mirrorFixation.x;
-        calibrationOffsetY = -mirrorFixation.y;
+    /// <summary>
+    /// Calibrates the reticle position relitive to the center of the screen.
+    /// </summary>
+    public void CalibrateReticleFixationPoint() {
+
+        calibrationOffsetX = -eyeGazePosition.x;
+
+        calibrationOffsetY = -eyeGazePosition.y;
     }
 }
