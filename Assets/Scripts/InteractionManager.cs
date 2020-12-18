@@ -9,7 +9,7 @@ using TMPro;
 [RequireComponent(typeof(ARRaycastManager))]
 public class InteractionManager : MonoBehaviour
 {
-    public GameObject WorldReticlePrefab;
+    public GameObject WorldTargetPrefab;
 
     [Header("UI Elements")]
 
@@ -21,7 +21,9 @@ public class InteractionManager : MonoBehaviour
 
     private List<ARRaycastHit> arRaycastHits = new List<ARRaycastHit>();
 
-    private GameObject worldReticleObject;
+    private Stack<GameObject> worldTargets = new Stack<GameObject>();
+
+    private Image image;
 
     private EyeTracker m_EyeTracker;
 
@@ -75,24 +77,35 @@ public class InteractionManager : MonoBehaviour
             return;
 
         m_CameraManager.requestedFacingDirection = CameraFacingDirection.World;
+
+        image = ScreenReticle.GetComponent<Image>();
     }
 
     private void Update() {
 
         if(arRaycastManager.Raycast(ScreenReticle.position, arRaycastHits, TrackableType.PlaneWithinPolygon)) {
 
+            image.color = new Color(image.color.r, image.color.g, image.color.b, 0f);
+
             Pose hit = arRaycastHits[0].pose;
 
-            if (worldReticleObject == null) {
+            if (worldTargets.Count == 0) {
 
-                worldReticleObject = Instantiate(WorldReticlePrefab, hit.position, Quaternion.identity);
+                worldTargets.Push(Instantiate(WorldTargetPrefab, hit.position, Quaternion.identity));
             }
             else {
 
-                worldReticleObject.transform.position = hit.position;
-
-                worldReticleObject.GetComponentInChildren<TextMeshPro>().text = hit.position.ToString("F3");
+                worldTargets.Peek().transform.position = hit.position;
             }
         }
+
+        image.color = new Color(image.color.r, image.color.g, image.color.b, 0.5f);
+    }
+
+    public void PlaceTarget() {
+
+        var target = Instantiate(WorldTargetPrefab);
+
+        worldTargets.Push(target);
     }
 }
