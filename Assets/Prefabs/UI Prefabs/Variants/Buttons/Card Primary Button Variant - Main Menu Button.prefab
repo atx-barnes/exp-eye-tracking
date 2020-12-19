@@ -7,6 +7,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7232660240365140882, guid: 73bb6f5b2cc6b4ed49f2a51c11f5b145, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -7.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232660240365140882, guid: 73bb6f5b2cc6b4ed49f2a51c11f5b145, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 547.57935
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232660240365140882, guid: 73bb6f5b2cc6b4ed49f2a51c11f5b145, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.9761
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232660240365140882, guid: 73bb6f5b2cc6b4ed49f2a51c11f5b145, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 115.29002
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232660241481032226, guid: 73bb6f5b2cc6b4ed49f2a51c11f5b145, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232660241481032227, guid: 73bb6f5b2cc6b4ed49f2a51c11f5b145, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -7.0599976
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232660241481032227, guid: 73bb6f5b2cc6b4ed49f2a51c11f5b145, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -34.35933
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232660241481032227, guid: 73bb6f5b2cc6b4ed49f2a51c11f5b145, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 28.100006
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232660241481032227, guid: 73bb6f5b2cc6b4ed49f2a51c11f5b145, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -56.23059
+      objectReference: {fileID: 0}
     - target: {fileID: 7232660242093986462, guid: 73bb6f5b2cc6b4ed49f2a51c11f5b145, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -93,7 +129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7232660242093986463, guid: 73bb6f5b2cc6b4ed49f2a51c11f5b145, type: 3}
       propertyPath: m_Name
-      value: Card Primary Button
+      value: Card Primary Button Variant - Main Menu Button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73bb6f5b2cc6b4ed49f2a51c11f5b145, type: 3}
