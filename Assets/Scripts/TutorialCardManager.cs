@@ -21,12 +21,15 @@ public class TutorialCardManager : MonoBehaviour
     public TextMeshProUGUI NextButton;
 
     public GameObject StepsParent;
+    public GameObject PageIndicatorPrefab;
+    public Transform PageIndicatorsParent;
     public List<string> Steps;
 
     private List<StepGroup> StepGroups = new List<StepGroup>();
     private List<TextMeshProUGUI> StepsTMP = new List<TextMeshProUGUI>();
+    private List<GameObject> PageIndicators = new List<GameObject>();
 
-    public int index;
+    private int index;
 
     private void Awake() {
 
@@ -58,6 +61,13 @@ public class TutorialCardManager : MonoBehaviour
                 // Add group to list of step groups for initializing a list of step based on a index value
                 StepGroups.Add(stepGroup);
             }
+        }
+
+
+        // Create page display indicators per group of steps
+        foreach (StepGroup group in StepGroups) {
+
+            PageIndicators.Add(Instantiate(PageIndicatorPrefab, PageIndicatorsParent));
         }
     }
 

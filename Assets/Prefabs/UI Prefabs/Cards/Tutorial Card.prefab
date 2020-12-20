@@ -56,6 +56,8 @@ MonoBehaviour:
   BackButton: {fileID: 7880938280270371247}
   NextButton: {fileID: 4893378609331326200}
   StepsParent: {fileID: 635161153302487345}
+  PageIndicatorPrefab: {fileID: 2347491150584813019, guid: dde1d07a27dfd4adb996bf387058253b, type: 3}
+  PageIndicatorsParent: {fileID: 3623740288797309093}
   Steps:
   - 1. Scan the ground / surface you want to use.
   - 2. Place iPad on the surface you just scanned at a 45 (Camera facing ground).
@@ -66,7 +68,6 @@ MonoBehaviour:
   - 6. Use the Gaze Movement Slider to increase or decrease gaze sensitivity
   - 7. DO NOT move your head or the iPad this will cause driting of the reticle and
     you will need to re-calibrate.
-  index: 0
 --- !u!1001 &468013391797556924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -624,6 +625,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &3623740288797309093 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3761819762555940377, guid: 94edd296bf3764efab484067e3083b55, type: 3}
+  m_PrefabInstance: {fileID: 468013391797556924}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8010299114178034589
 PrefabInstance:
   m_ObjectHideFlags: 0
