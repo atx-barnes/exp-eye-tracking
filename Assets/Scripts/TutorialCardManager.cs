@@ -1,0 +1,122 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using System;
+using TMPro;
+using UnityEngine.Events;
+
+[Serializable]
+public class StepGroup {
+
+    public List<string> Steps = new List<string>();
+}
+
+public class TutorialCardManager : MonoBehaviour
+{
+    public Color EnabledButtonColor;
+    public Color DisabledButtonColor;
+
+    public TextMeshProUGUI BackButton;
+    public TextMeshProUGUI NextButton;
+
+    public GameObject StepsParent;
+    public List<string> Steps;
+
+    private List<StepGroup> StepGroups = new List<StepGroup>();
+    private List<TextMeshProUGUI> StepsTMP = new List<TextMeshProUGUI>();
+
+    public int index;
+
+    private void Awake() {
+
+        BackButton = BackButton.GetComponent<TextMeshProUGUI>();
+        NextButton = NextButton.GetComponent<TextMeshProUGUI>();
+
+        // Get references to TMPro text fields
+        foreach (Transform step in StepsParent.transform) {
+
+            StepsTMP.Add(step.GetComponent<TextMeshProUGUI>());
+        }
+
+        // Create step groups based on the amount of text fields under the parent object in the hiearchy
+        for (int i = 0, x = 0; i < Steps.Count; i++) {
+
+            if (i % StepsTMP.Count == 0) {
+
+                StepGroup stepGroup = new StepGroup();
+
+                for (int z = 0; z < StepsTMP.Count; z++, x++) {
+
+                    if(x < Steps.Count) {
+
+                        // Populate each step group with tutorial content
+                        stepGroup.Steps.Add(Steps[x]);
+                    }
+                }
+
+                // Add group to list of step groups for initializing a list of step based on a index value
+                StepGroups.Add(stepGroup);
+            }
+        }
+    }
+
+    private void Start() {
+
+        // Populate the text fields with the first list of steps
+        InitializeSteps(index);
+    }
+
+    // Populate the text fields with steps based on index number param
+    private void InitializeSteps(int index) {
+
+        // Clear out previous content
+        foreach (TextMeshProUGUI text in StepsTMP) {
+
+            text.text = "";
+        }
+
+        for (int i = 0; i < StepGroups[index].Steps.Count; i++) {
+
+            StepsTMP[i].text = StepGroups[index].Steps[i];
+        }
+
+        if (index == StepGroups.Count - 1) {
+
+            NextButton.color = DisabledButtonColor;
+
+        } else {
+
+            NextButton.color = EnabledButtonColor;
+        }
+
+        if (index == 0) {
+
+            BackButton.color = DisabledButtonColor;
+
+        } else {
+
+            BackButton.color = EnabledButtonColor;
+        }
+    }
+
+    public void Next() {
+
+        if(index < StepGroups.Count - 1) {
+
+            index++;
+
+            InitializeSteps(index);
+        }
+    }
+
+    public void Back() {
+
+        if(index > 0) {
+
+            index--;
+
+            InitializeSteps(index);
+        }
+    }
+}
