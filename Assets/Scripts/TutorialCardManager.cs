@@ -81,16 +81,27 @@ public class TutorialCardManager : MonoBehaviour
     private void InitializeSteps(int index) {
 
         // Clear out previous content
-        foreach (TextMeshProUGUI text in StepsTMP) {
+        foreach (TextMeshProUGUI tmp in StepsTMP) {
 
-            text.text = "";
+            tmp.text = string.Empty;
         }
 
+        // Populate text fields from each step group with the steps
         for (int i = 0; i < StepGroups[index].Steps.Count; i++) {
 
             StepsTMP[i].text = StepGroups[index].Steps[i];
         }
 
+        // Turn off indicators
+        foreach (GameObject indicator in PageIndicators) {
+
+            indicator.transform.GetChild(1).gameObject.SetActive(false);
+        }
+
+        // Turn on indicator based on group
+        PageIndicators[index].transform.GetChild(1).gameObject.SetActive(true);
+
+        // Check if the the last steps are initialized
         if (index == StepGroups.Count - 1) {
 
             NextButton.color = DisabledButtonColor;
@@ -100,6 +111,7 @@ public class TutorialCardManager : MonoBehaviour
             NextButton.color = EnabledButtonColor;
         }
 
+        // Check if the the first steps are initialized
         if (index == 0) {
 
             BackButton.color = DisabledButtonColor;
@@ -110,6 +122,7 @@ public class TutorialCardManager : MonoBehaviour
         }
     }
 
+    // Cycle to the next group of steps
     public void Next() {
 
         if(index < StepGroups.Count - 1) {
@@ -120,6 +133,7 @@ public class TutorialCardManager : MonoBehaviour
         }
     }
 
+    // Cycle to the previous group of steps
     public void Back() {
 
         if(index > 0) {
