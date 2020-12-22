@@ -41,9 +41,12 @@ public class TutorialCardManager : MonoBehaviour
 
             StepsTMP.Add(step.GetComponent<TextMeshProUGUI>());
         }
+    }
 
-        // Create step groups based on the amount of text fields under the parent object in the hiearchy
-        for (int i = 0, x = 0; i < Steps.Count; i++) {
+    public void InitializeTutiroialInformation(List<string> steps) {
+
+        // Create step groups based on the amount of text fields under the parent object in the hiearchy.
+        for (int i = 0, x = 0; i < steps.Count; i++) {
 
             if (i % StepsTMP.Count == 0) {
 
@@ -51,10 +54,10 @@ public class TutorialCardManager : MonoBehaviour
 
                 for (int z = 0; z < StepsTMP.Count; z++, x++) {
 
-                    if(x < Steps.Count) {
+                    if (x < steps.Count) {
 
                         // Populate each step group with tutorial content
-                        stepGroup.Steps.Add(Steps[x]);
+                        stepGroup.Steps.Add(steps[x]);
                     }
                 }
 
@@ -71,14 +74,8 @@ public class TutorialCardManager : MonoBehaviour
         }
     }
 
-    private void Start() {
-
-        // Populate the text fields with the first list of steps
-        InitializeSteps(index);
-    }
-
     // Populate the text fields with steps based on index number param
-    private void InitializeSteps(int index) {
+    private void InitializeGroupSteps(int index) {
 
         // Clear out previous content
         foreach (TextMeshProUGUI tmp in StepsTMP) {
@@ -129,7 +126,7 @@ public class TutorialCardManager : MonoBehaviour
 
             index++;
 
-            InitializeSteps(index);
+            InitializeGroupSteps(index);
         }
     }
 
@@ -140,7 +137,7 @@ public class TutorialCardManager : MonoBehaviour
 
             index--;
 
-            InitializeSteps(index);
+            InitializeGroupSteps(index);
         }
     }
 }

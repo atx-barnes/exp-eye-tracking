@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8297674037685158653}
+  - component: {fileID: 5344836893271534938}
   m_Layer: 5
   m_Name: Main Menu
   m_TagString: Untagged
@@ -37,6 +38,21 @@ RectTransform:
   m_AnchoredPosition: {x: -2, y: -55.4}
   m_SizeDelta: {x: 843.7328, y: 1001.3519}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5344836893271534938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8297674037685158650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 173fe27b48a9b4d02a0ed3116e2d3735, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameTMP: {fileID: 0}
+  DescriptionTMP: {fileID: 0}
+  DemoInformation: []
 --- !u!1001 &397588343914339852
 PrefabInstance:
   m_ObjectHideFlags: 0
