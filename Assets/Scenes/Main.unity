@@ -243,6 +243,17 @@ Transform:
   m_Father: {fileID: 378471214}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &142506739 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1213918294521581558, guid: 5300010fd5c674a65b9c4acd1a1655a0, type: 3}
+  m_PrefabInstance: {fileID: 8010299114651383578}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c92beb2c1a819465c8448565069af4ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &209710007
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,6 +737,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 458681396}
   m_CullTransparentMesh: 0
+--- !u!114 &467071831 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8098676089140440178, guid: f705cdbf1621249b4bb6b3edf0548b0f, type: 3}
+  m_PrefabInstance: {fileID: 7886133827600178979}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &623116542
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,6 +979,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8010299115743738372, guid: 5300010fd5c674a65b9c4acd1a1655a0, type: 3}
   m_PrefabInstance: {fileID: 8010299114651383578}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1164979701 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1764414714540073850, guid: f705cdbf1621249b4bb6b3edf0548b0f, type: 3}
+  m_PrefabInstance: {fileID: 7886133827600178979}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1192891097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1181,6 +1214,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1393526955 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8098676089899729685, guid: f705cdbf1621249b4bb6b3edf0548b0f, type: 3}
+  m_PrefabInstance: {fileID: 7886133827600178979}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1416001515
 GameObject:
   m_ObjectHideFlags: 0
@@ -1624,6 +1668,90 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5344836893271534938, guid: 6225a3a280847474595dfa4aae55cffd, type: 3}
+      propertyPath: Modality.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5344836893271534938, guid: 6225a3a280847474595dfa4aae55cffd, type: 3}
+      propertyPath: Modality.Array.data[0].TutorialSteps.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5344836893271534938, guid: 6225a3a280847474595dfa4aae55cffd, type: 3}
+      propertyPath: NameTMP
+      value: 
+      objectReference: {fileID: 467071831}
+    - target: {fileID: 5344836893271534938, guid: 6225a3a280847474595dfa4aae55cffd, type: 3}
+      propertyPath: DescriptionTMP
+      value: 
+      objectReference: {fileID: 1393526955}
+    - target: {fileID: 5344836893271534938, guid: 6225a3a280847474595dfa4aae55cffd, type: 3}
+      propertyPath: TutorialCardManager
+      value: 
+      objectReference: {fileID: 142506739}
+    - target: {fileID: 5344836893271534938, guid: 6225a3a280847474595dfa4aae55cffd, type: 3}
+      propertyPath: ContinueButton
+      value: 
+      objectReference: {fileID: 7886133827600178980}
+    - target: {fileID: 5344836893271534938, guid: 6225a3a280847474595dfa4aae55cffd, type: 3}
+      propertyPath: StartModalitySceneButton
+      value: 
+      objectReference: {fileID: 8010299114651383579}
+    - target: {fileID: 5344836893271534938, guid: 6225a3a280847474595dfa4aae55cffd, type: 3}
+      propertyPath: Modality.Array.data[0].Name
+      value: Eye-To-World Tracking
+      objectReference: {fileID: 0}
+    - target: {fileID: 5344836893271534938, guid: 6225a3a280847474595dfa4aae55cffd, type: 3}
+      propertyPath: Modality.Array.data[0].Description
+      value: This demo showcases eye-to-world tracking technology used to maniplute
+        things in the simulated world.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5344836893271534938, guid: 6225a3a280847474595dfa4aae55cffd, type: 3}
+      propertyPath: Modality.Array.data[0].ModalitySceneName
+      value: NA
+      objectReference: {fileID: 0}
+    - target: {fileID: 5344836893271534938, guid: 6225a3a280847474595dfa4aae55cffd, type: 3}
+      propertyPath: Modality.Array.data[0].ModalityMenuButton
+      value: 
+      objectReference: {fileID: 2097931673818911921}
+    - target: {fileID: 5344836893271534938, guid: 6225a3a280847474595dfa4aae55cffd, type: 3}
+      propertyPath: Modality.Array.data[0].TutorialSteps.Array.data[0]
+      value: 1. Scan the ground / surface you want to use.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5344836893271534938, guid: 6225a3a280847474595dfa4aae55cffd, type: 3}
+      propertyPath: Modality.Array.data[0].TutorialSteps.Array.data[1]
+      value: 2. Place iPad on the surface you just scanned at a 45 (Camera facing
+        ground).
+      objectReference: {fileID: 0}
+    - target: {fileID: 5344836893271534938, guid: 6225a3a280847474595dfa4aae55cffd, type: 3}
+      propertyPath: Modality.Array.data[0].TutorialSteps.Array.data[2]
+      value: 3. Look in the middle of screen and hit the calibrate button.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5344836893271534938, guid: 6225a3a280847474595dfa4aae55cffd, type: 3}
+      propertyPath: Modality.Array.data[0].TutorialSteps.Array.data[3]
+      value: 4. You should see a reticle in the middle of screen once you look at
+        the surface you should be able to move the ball around with your eyes.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5344836893271534938, guid: 6225a3a280847474595dfa4aae55cffd, type: 3}
+      propertyPath: Modality.Array.data[0].TutorialSteps.Array.data[4]
+      value: 5. Recalibrate often due to eye tracking drift.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5344836893271534938, guid: 6225a3a280847474595dfa4aae55cffd, type: 3}
+      propertyPath: Modality.Array.data[0].TutorialSteps.Array.data[5]
+      value: 6. Use the Gaze Movement Slider to increase or decrease gaze sensitivity
+      objectReference: {fileID: 0}
+    - target: {fileID: 5344836893271534938, guid: 6225a3a280847474595dfa4aae55cffd, type: 3}
+      propertyPath: Modality.Array.data[0].TutorialSteps.Array.data[6]
+      value: 7. DO NOT move your head or the iPad this will cause driting of the
+        reticle and you will need to re-calibrate.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5344836893271534938, guid: 6225a3a280847474595dfa4aae55cffd, type: 3}
+      propertyPath: Icon
+      value: 
+      objectReference: {fileID: 1164979701}
+    - target: {fileID: 5344836893271534938, guid: 6225a3a280847474595dfa4aae55cffd, type: 3}
+      propertyPath: Modality.Array.data[0].IconImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 8fb428b84798346c190454eaeaa5a840, type: 3}
     - target: {fileID: 8297674037685158650, guid: 6225a3a280847474595dfa4aae55cffd, type: 3}
       propertyPath: m_Name
       value: Main Menu
@@ -1754,6 +1882,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6225a3a280847474595dfa4aae55cffd, type: 3}
+--- !u!114 &2097931673818911921 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1281574073199632857, guid: 6225a3a280847474595dfa4aae55cffd, type: 3}
+  m_PrefabInstance: {fileID: 2097931673818911920}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3335025626162893393
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2084,6 +2223,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f705cdbf1621249b4bb6b3edf0548b0f, type: 3}
+--- !u!114 &7886133827600178980 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6106190833204808060, guid: f705cdbf1621249b4bb6b3edf0548b0f, type: 3}
+  m_PrefabInstance: {fileID: 7886133827600178979}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &7942690781016551983 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4643913862922461310, guid: f512b4fe8ac3b4041b338f175b461e4d, type: 3}
@@ -2527,3 +2677,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5300010fd5c674a65b9c4acd1a1655a0, type: 3}
+--- !u!114 &8010299114651383579 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2806881311396334390, guid: 5300010fd5c674a65b9c4acd1a1655a0, type: 3}
+  m_PrefabInstance: {fileID: 8010299114651383578}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

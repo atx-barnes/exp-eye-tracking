@@ -727,7 +727,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7232660242093986463, guid: 73bb6f5b2cc6b4ed49f2a51c11f5b145, type: 3}
       propertyPath: m_Name
-      value: Card Primary Button
+      value: Card Primary Button - Start Modality Scene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73bb6f5b2cc6b4ed49f2a51c11f5b145, type: 3}

@@ -23,7 +23,6 @@ public class TutorialCardManager : MonoBehaviour
     public GameObject StepsParent;
     public GameObject PageIndicatorPrefab;
     public Transform PageIndicatorsParent;
-    public List<string> Steps;
 
     private List<StepGroup> StepGroups = new List<StepGroup>();
     private List<TextMeshProUGUI> StepsTMP = new List<TextMeshProUGUI>();
@@ -72,6 +71,9 @@ public class TutorialCardManager : MonoBehaviour
 
             PageIndicators.Add(Instantiate(PageIndicatorPrefab, PageIndicatorsParent));
         }
+
+        // Inititlize first steps
+        InitializeGroupSteps(0);
     }
 
     // Populate the text fields with steps based on index number param
