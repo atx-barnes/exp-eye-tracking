@@ -44,6 +44,8 @@ public class TutorialCardManager : MonoBehaviour
 
     public void InitializeTutiroialInformation(List<string> steps) {
 
+        ResetTutorial();
+
         // Create step groups based on the amount of text fields under the parent object in the hiearchy.
         for (int i = 0, x = 0; i < steps.Count; i++) {
 
@@ -65,7 +67,6 @@ public class TutorialCardManager : MonoBehaviour
             }
         }
 
-
         // Create page display indicators per group of steps
         foreach (StepGroup group in StepGroups) {
 
@@ -82,7 +83,10 @@ public class TutorialCardManager : MonoBehaviour
         // Clear out previous content
         foreach (TextMeshProUGUI tmp in StepsTMP) {
 
-            tmp.text = string.Empty;
+            if(!string.IsNullOrEmpty(tmp.text)) {
+
+                tmp.text = string.Empty;
+            }
         }
 
         // Populate text fields from each step group with the steps
@@ -101,24 +105,12 @@ public class TutorialCardManager : MonoBehaviour
         PageIndicators[index].transform.GetChild(1).gameObject.SetActive(true);
 
         // Check if the the last steps are initialized
-        if (index == StepGroups.Count - 1) {
-
-            NextButton.color = DisabledButtonColor;
-
-        } else {
-
-            NextButton.color = EnabledButtonColor;
-        }
+        if (index == StepGroups.Count - 1) { NextButton.color = DisabledButtonColor; }
+        else { NextButton.color = EnabledButtonColor; }
 
         // Check if the the first steps are initialized
-        if (index == 0) {
-
-            BackButton.color = DisabledButtonColor;
-
-        } else {
-
-            BackButton.color = EnabledButtonColor;
-        }
+        if (index == 0) { BackButton.color = DisabledButtonColor; }
+        else { BackButton.color = EnabledButtonColor; }
     }
 
     // Cycle to the next group of steps
@@ -140,6 +132,22 @@ public class TutorialCardManager : MonoBehaviour
             index--;
 
             InitializeGroupSteps(index);
+        }
+    }
+
+
+    // Reset the tutorial meta information
+    private void ResetTutorial() {
+
+        StepGroups.Clear();
+        PageIndicators.Clear();
+
+        index = 0;
+
+        // Clear page display indicators
+        foreach (Transform indicator in PageIndicatorsParent.transform) {
+
+            Destroy(indicator.gameObject);
         }
     }
 }

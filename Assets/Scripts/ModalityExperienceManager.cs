@@ -77,5 +77,10 @@ public class ModalityExperienceManager : MonoBehaviour {
 
             modality.ModalityMenuButton.onClick.RemoveAllListeners();
         }
+
+        // Remove button listeners
+        ContinueButton.onClick.RemoveAllListeners();
+
+        StartModalitySceneButton.onClick.RemoveAllListeners();
     }
 }
