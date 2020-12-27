@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour {
 
     public GameObject Ball;
 
-    public float ForceMultiplier = 1;
+    public float ForceMultiplier = 50;
 
     void Update() {
 
