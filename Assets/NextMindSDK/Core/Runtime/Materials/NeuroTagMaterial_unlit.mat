@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: NeuroTagMaterial_unlit
-  m_Shader: {fileID: 4800000, guid: 060590c90c36419468a932a62cf61528, type: 3}
+  m_Shader: {fileID: 4800000, guid: 97f0c0f9099a8484784fb30989ce588b, type: 3}
   m_ShaderKeywords: CONSTANT_SIZE TRIPLANAR _ALPHATEST_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -73,13 +73,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - PixelSnap: 0
-    - _AlphaCutoff: 1
+    - _AlphaCutoff: 0
     - _BeansDensity: 1
-    - _Blend: 0
+    - _Blend: 0.237
     - _BumpScale: 1
     - _ConstantSize: 1
     - _Cutoff: 0.58
-    - _Density: 4
+    - _Density: 5.98
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnableExternalAlpha: 0
@@ -103,8 +103,9 @@ Material:
     - _UseMainTexAlpha: 1
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _Color: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _Tiling: {r: 8, g: 6, b: 0, a: 0}
+  m_BuildTextureStacks: []
