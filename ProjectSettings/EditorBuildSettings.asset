@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main/Main.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/Non-AR Prototype Scenes/Nextmind/NextMind.unity
+    guid: 802f88664defd4fbaa6e6f6492464757
   m_configObjects:
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 4e3ba585f39bd4f48a880501a8293934, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9df930cf50afb4daaba81744b2e782e5, type: 2}
