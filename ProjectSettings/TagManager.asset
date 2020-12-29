@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Right Eye
   - Left Eye
+  - ground
   layers:
   - Default
   - TransparentFX

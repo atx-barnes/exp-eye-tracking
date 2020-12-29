@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour {
 
             if (Physics.Raycast(ray, out hit)) {
 
-                if (hit.rigidbody != null) {
+                if (hit.rigidbody != null && hit.transform.tag == "ground") {
 
                     Vector3 dir = (hit.point - Ball.transform.position).normalized;
 
@@ -98,8 +98,15 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public void OnFocusForce() {
+
+        AddForce();
+    }
+
     public void ResetNeuroTag() {
 
         NeuroTagObject.transform.localScale = InitialNeuroTagScale;
+
+        Cursor.visible = false;
     }
 }
