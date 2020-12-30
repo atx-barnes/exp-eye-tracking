@@ -1540,8 +1540,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d71f2711bb20b4d368089e1008489ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LoginInfo:
-    Values: []
+  CarEndpointId: 32656067504906023
+  StateEndpoint: 
+  CommandEndpoint: command/door_lock
 --- !u!1 &956583385446507048
 GameObject:
   m_ObjectHideFlags: 0
