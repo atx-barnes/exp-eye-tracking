@@ -397,7 +397,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.9990255, b: 0.9198113, a: 1}
-  m_Intensity: 0.68
+  m_Intensity: 0.59
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -547,6 +547,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1917772215889249221, guid: 334cecaaa212743a690d0e46e199f4dc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2746478764757419304, guid: 334cecaaa212743a690d0e46e199f4dc, type: 3}
       propertyPath: m_Name
       value: Tesla White
@@ -595,6 +599,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5574115805447372050, guid: 334cecaaa212743a690d0e46e199f4dc, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 56a8dba1b04d34b199c0ddbbdd5cf975, type: 2}
+    - target: {fileID: 6590815072016158179, guid: 334cecaaa212743a690d0e46e199f4dc, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 56a8dba1b04d34b199c0ddbbdd5cf975, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 334cecaaa212743a690d0e46e199f4dc, type: 3}
 --- !u!1 &1486902799
