@@ -8,6 +8,24 @@ EditorBuildSettings:
   - enabled: 1
     path: 
     guid: 802f88664defd4fbaa6e6f6492464757
+  - enabled: 1
+    path: Assets/NextMindSDK/Examples/Calibration/Calibration.unity
+    guid: 7ca228870b8a84b409095067aeb1296f
+  - enabled: 1
+    path: Assets/NextMindSDK/Examples/SDKDiscovery/SDKDiscovery_VR.unity
+    guid: 8e71a1ff046200b468f6c7425bbbb159
+  - enabled: 1
+    path: Assets/NextMindSDK/Examples/Hub_VR.unity
+    guid: 282181e38ebf2d64e98ded67e2c52942
+  - enabled: 1
+    path: Assets/NextMindSDK/Examples/Hub.unity
+    guid: be272fb300a5f3544b9889b8a052ba4e
+  - enabled: 1
+    path: Assets/NextMindSDK/Examples/SDKDiscovery/SDKDiscovery.unity
+    guid: d45fe7d03f5903e45802ee75a10c3b95
+  - enabled: 1
+    path: Assets/NextMindSDK/Examples/Calibration/Calibration_VR.unity
+    guid: a280f6b773e0fe94cae0ed20d6eab244
   m_configObjects:
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 4e3ba585f39bd4f48a880501a8293934, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9df930cf50afb4daaba81744b2e782e5, type: 2}

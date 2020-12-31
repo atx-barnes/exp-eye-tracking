@@ -40,7 +40,9 @@ public class EyeTracker : MonoBehaviour
             interactionManager.eyeTracker = this;
         }
 
-        if(arFaceManager != null && arFaceManager.subsystem != null && arFaceManager.subsystem.SubsystemDescriptor.supportsEyeTracking) {
+        //TODO: Fix this
+
+        if(arFaceManager != null /* && arFaceManager.subsystem != null && arFaceManager.subsystem.SubsystemDescriptor.supportsEyeTracking*/) {
 
             arFace.updated += OnUpdated;
         }
